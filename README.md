@@ -35,7 +35,7 @@ GROQ_API_KEY=your_groq_api_key
 ## Run the Streamlit app
 
 ```bash
-streamlit run app.py
+python -m streamlit run app.py
 ```
 
 ## How It Works
