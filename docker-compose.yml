@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  streamlit:
+    build:
+      context: .
+      dockerfile: Dockerfile.streamlit
+    image: jaswanthdoc733/rag_streamlit:latest
+    ports:
+      - "8501:8501"
+    env_file: .env
+    volumes:
+      - research_data:/app/research_papers
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    image: jaswanthdoc733/rag_api:latest
+    ports:
+      - "5000:5000"
+    env_file: .env
+    volumes:
+      - research_data:/app/research_papers
+
+volumes:
+  research_data:
