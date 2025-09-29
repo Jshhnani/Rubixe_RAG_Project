@@ -2,15 +2,15 @@
 
 # HR Policy Q&A Chatbot (RAG-based Retrieval System)
 
-This project is a Retrieval-Augmented Generation (RAG)-based Q&A chatbot that extracts relevant answers from HR Policy. It utilizes LangChain, FAISS, Hugging Face embeddings, and Groq's LLaMA 3.3-70B model to provide accurate responses based on uploaded PDFs.
+The RAG system retrieves relevant chunks of documents using embeddings and generates natural language answers using a large language model.
 
-## Features
-
-- Upload & process PDF research papers
-- Convert text into vector embeddings (FAISS)
-- Retrieve relevant context using semantic search
-- Generate accurate responses using LLaMA 3.3-70B
-- Interactive UI with Streamlit
+**Key Features:**
+- Upload PDFs via Streamlit UI.
+- Create embeddings and vector store for fast retrieval.
+- Use Groq LLM to generate answers.
+- Source ranking & re-ranking for relevance.
+- Caching embeddings to avoid recomputation.
+- Flask API endpoint for programmatic queries.
 
 
 ## Set up a virtual environment (Optional but recommended)
@@ -40,11 +40,11 @@ python -m streamlit run app.py
 
 ## How It Works
 
-- Upload Research Papers: The app loads PDFs from a specified folder.
-- Text Preprocessing: Splits documents into chunks using RecursiveCharacterTextSplitter.
-- Vector Embedding Creation: Uses BAAI/bge-small-en embeddings for semantic similarity.
-- Search & Retrieval: Uses FAISS vector search to find relevant document chunks.
-- Answer Generation: Queries LLaMA 3.3-70B for a detailed response.
+- Upload PDFs in Streamlit → Documents are cleaned → Split into chunks.
+- Embed chunks using HuggingFaceEmbeddings → Store in FAISS vector database.
+- User query → Vector store searches top k relevant chunks.
+- Re-ranking & compression → Only the most relevant chunks are passed to the LLM.
+- LLM generates answer → Displayed in Streamlit or returned via Flask API.
 
 ## Usage
 
