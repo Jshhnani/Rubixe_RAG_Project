@@ -59,3 +59,6 @@ python -m streamlit run app.py
 - Enter a query related to the HR Policy file.
 - The model retrieves relevant text & generates a detailed response.
 - Check the document similarity search section for context.
+
+### Preview
+![Screenshot](Screenshot.png)
